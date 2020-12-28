@@ -203,52 +203,57 @@
                         <span class="carousel-control-next-icon"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                </div>
-            </div>
-        </div>
 
-        <div class="row row-content align-items-center">
-            <div class="col-sm-4 order-sm-last col-md-3">
-                <h2 class="text-sm-right">Discover & Review</h2>
-            </div>
-            <div class="col">
-                <div class="media">
-                    <img class="d-flex mr-3 img-thumbnail" src="img/breadcrumb-trail-thumb.jpg" alt="Breadcrumb Trail thumbnail" />
-                    <div class="media-body align-self-center">
-                        <h3>Our Campsites</h3>
-                        <p class="d-none d-sm-block">Explore our growing database of curated campsites and leave your own reviews!</p>
-                    </div>
+                    <button class='btn btn-danger btn-sm' id="carouselButton">
+                            <i class="fa fa-pause"></i>
+                        </button>
+
                 </div>
             </div>
         </div>
-        <div class="row row-content align-items-center">
-            <div class="col-sm-4 col-md-3">
-                <h2>Featured Campsites</h2>
-            </div>
-            <div class="col">
-                <h3>React Lake Campground</h3>
-                <p>Nestled in the foothills of the Chrome Mountains, this campground on the shores of the pristine React Lake is a favorite for fly fishers.</p>
-            </div>
-            <div class="col">
-                <div class="media">
-                    <img class="d-flex ml-3 img-thumbnail" src="img/react-lake-thumb.jpg" alt="React Lake thumbnail" />
+    </div>
+    <div class="row row-content align-items-center">
+        <div class="col-sm-4 order-sm-last col-md-3">
+            <h2 class="text-sm-right">Discover & Review</h2>
+        </div>
+        <div class="col">
+            <div class="media">
+                <img class="d-flex mr-3 img-thumbnail" src="img/breadcrumb-trail-thumb.jpg" alt="Breadcrumb Trail thumbnail" />
+                <div class="media-body align-self-center">
+                    <h3>Our Campsites</h3>
+                    <p class="d-none d-sm-block">Explore our growing database of curated campsites and leave your own reviews!</p>
                 </div>
             </div>
         </div>
-        <div class="row row-content align-items-center">
-            <div class="col-sm-4 order-sm-last col-md-3">
-                <h2 class="text-sm-right">Our Community Partners</h2>
+    </div>
+    <div class="row row-content align-items-center">
+        <div class="col-sm-4 col-md-3">
+            <h2>Featured Campsites</h2>
+        </div>
+        <div class="col">
+            <h3>React Lake Campground</h3>
+            <p>Nestled in the foothills of the Chrome Mountains, this campground on the shores of the pristine React Lake is a favorite for fly fishers.</p>
+        </div>
+        <div class="col">
+            <div class="media">
+                <img class="d-flex ml-3 img-thumbnail" src="img/react-lake-thumb.jpg" alt="React Lake thumbnail" />
             </div>
-            <div class="col">
-                <div class="media">
-                    <img src="img/bootstrap-thumb.png" alt="Bootstrap Outfitters" class="d-flex mr-3 img-thumbnail" />
-                    <div class="media-body align-self-center">
-                        <h3>Bootstrap Outfitters</h3>
-                        <p>Bootstrap Outfitters supplies you with gear you need at prices you can't beat.</p>
-                    </div>
+        </div>
+    </div>
+    <div class="row row-content align-items-center">
+        <div class="col-sm-4 order-sm-last col-md-3">
+            <h2 class="text-sm-right">Our Community Partners</h2>
+        </div>
+        <div class="col">
+            <div class="media">
+                <img src="img/bootstrap-thumb.png" alt="Bootstrap Outfitters" class="d-flex mr-3 img-thumbnail" />
+                <div class="media-body align-self-center">
+                    <h3>Bootstrap Outfitters</h3>
+                    <p>Bootstrap Outfitters supplies you with gear you need at prices you can't beat.</p>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <footer class="site-footer">
         <div class="container">
@@ -281,6 +286,24 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <script>
+        $(function() {
+            $(".carousel").carousel({
+                interval: 2000
+            });
+            $("#carouselButton").click(function() {
+                if ($("#carouselButton").children("i").hasClass("fa-pause")) {
+                    $(".carousel").carousel("pause");
+                    $("#carouselButton").children("i").removeClass("fa-pause");
+                    $("#carouselButton").children("i").addClass("fa-play");
+                } else {
+                    $(".carousel").carousel("cycle");
+                    $("#carouselButton").children("i").removeClass("fa-play");
+                    $("#carouselButton").children("i").addClass("fa-pause");
+                }
+            });
+        });
+    </script>
 
 </body>
 
